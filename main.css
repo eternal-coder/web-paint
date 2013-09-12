@@ -6,3 +6,7 @@
 	height: 500px;
 }
 
+#myCanvas{
+	border:1px solid #000000;
+	cursor: default;
+}
