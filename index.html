@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<script src="jquery-1.9.1.js"></script>
+<canvas id="myCanvas" width="600" height="500" style="border:1px solid #000000;">
+</canvas>
+<script>
+	var c=document.getElementById("myCanvas");
+	var ctx=c.getContext("2d");
+	var lineActive = false;
+	$(c).mousedown(function(event){
+		x = event.offsetX;
+		y = event.offsetY;
+		ctx.moveTo(x,y);
+		lineActive = true;
+	});
+	
+	$(c).mouseup(function(event){
+		lineActive = false;
+	});
+	
+	$(c).mousemove(function(event){
+		if(lineActive){
+			x = event.offsetX;
+			y = event.offsetY;
+			ctx.lineTo(x,y);
+			ctx.stroke();
+		}
+	});
+	
+
+	
+</script>
