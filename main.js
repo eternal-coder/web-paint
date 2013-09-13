@@ -29,7 +29,7 @@ $(c).mousemove(function(event) {
 });
 
 $("#clear").click(function() {
-    ctx.clearRect(0, 0, 600, 500);
+    ctx.clearRect(0, 0, c.width, c.height);
     ctx.beginPath();
 });
 
