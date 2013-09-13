@@ -24,10 +24,19 @@
     height: 440px;
 }
 
-#myCanvas{
+#layer1{
+    position: absolute;
     border:1px solid #000000;
     cursor: default;
 }
+
+#layer2{
+    position: absolute;
+    border:1px solid #000000;
+    cursor: default;
+    display: none;
+}
+
 
 #curve{
     background-image: url('curve.png');
@@ -38,6 +47,12 @@
     padding: 15px;
 }
 
+.canvas_container{
+    position: relative;
+    height:500px;
+    width: 600px;
+}
+
 .tools_panel input[type="button"]{
     width: 48px;
     height: 48px;
@@ -46,28 +61,4 @@
 .palette input[type="button"]{
     width: 48px;
     height: 48px;
-}
-
-#black{
-    background-color: black;
-}
-
-#green{
-    background-color: green;
-}
-
-#red{
-    background-color: red;
-}
-
-#blue{
-    background-color: blue;
-}
-
-#gray{
-    background-color: gray;
-}
-
-#yellow{
-    background-color: yellow;
 }

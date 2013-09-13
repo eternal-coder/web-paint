@@ -6,59 +6,23 @@
 </div>
 <div id="selected_color"></div>
 <div class="palette">
-    <input type="button" id="black" data-color="black" >
-    <input type="button" id="green" data-color="green" >
+    <input type="button"  data-color="black" >
+    <input type="button"  data-color="green" >
     <br>
-    <input type="button" id="yellow" data-color="yellow" >
-    <input type="button" id="red" data-color="red" >
+    <input type="button"  data-color="yellow" >
+    <input type="button"  data-color="red" >
     <br>
-    <input type="button" id="blue" data-color="blue" >
-    <input type="button" id="gray" data-color="gray" >
+    <input type="button" data-color="blue" >
+    <input type="button" data-color="gray" >
+    <br>
+    <input type="button" data-color="#E01B5D" >
+    <input type="button" data-color="#1BCCE0" >
 </div>
-<canvas id="myCanvas" width="600" height="500" >
-</canvas>
-<br/>
+<div class="canvas_container">
+    <canvas id="layer1" width="600" height="500" >
+    </canvas>
+    <canvas id="layer2" width="600" height="500" >
+    </canvas>
+</div>
 <input type="button" id="clear" value="Clear">
-<script>
-    var c = document.getElementById("myCanvas");
-    var ctx = c.getContext("2d");
-    var lineActive = false;
-    var color = "black";
-
-    document.onselectstart = function() {
-        return false;
-    } //prevent cursor changing
-
-    $(c).mousedown(function(event) {
-        x = event.offsetX;
-        y = event.offsetY;
-        ctx.moveTo(x, y);
-        lineActive = true;
-    });
-
-    $(c).mouseup(function(event) {
-        lineActive = false;
-    });
-
-    $(c).mousemove(function(event) {
-        if (lineActive) {
-            x = event.offsetX;
-            y = event.offsetY;
-            ctx.lineTo(x, y);
-            ctx.strokeStyle = color;
-            ctx.stroke();
-        }
-    });
-
-    $("#clear").click(function() {
-        ctx.clearRect(0, 0, 600, 500);
-        ctx.beginPath();
-    });
-
-    $(".palette>input[type='button']").click(function() {
-        ctx.beginPath();
-        color = $(this).data("color");
-        $("#selected_color").css("background-color", color);
-    });
-
-</script>
+<script src="main.js"></script>
