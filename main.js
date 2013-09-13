@@ -40,6 +40,7 @@ $(".palette>input[type='button']").click(function() {
 });
 
 $('#customcolor').change(function(){
+    ctx.beginPath();
     color = $(this).val();
     $("#selected_color").css("background-color", color);
 });
