@@ -39,6 +39,11 @@ $(".palette>input[type='button']").click(function() {
     $("#selected_color").css("background-color", color);
 });
 
+$('#customcolor').change(function(){
+    color = $(this).val();
+    $("#selected_color").css("background-color", color);
+});
+
 $(function() {
     $(".palette>input[type='button']").each(function() {
         color = $(this).data("color");
@@ -46,3 +51,5 @@ $(function() {
     });
     color = 'black';
 });
+
+
