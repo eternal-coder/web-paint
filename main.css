@@ -16,3 +16,8 @@
     height: 48px;
     background-image: url('curve.png');
 }
+
+#clear{
+    font-size: 20pt;
+    padding: 15px;
+}
