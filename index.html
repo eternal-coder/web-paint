@@ -2,37 +2,41 @@
 <script src="jquery-1.10.2.min.js"></script>
 <link rel="stylesheet" type="text/css" href="main.css">
 <div class="tools_panel">
-<button id="curve">
+    <button id="curve" >
 </div>
 <canvas id="myCanvas" width="600" height="500" >
 </canvas>
-<script>
-	var c=document.getElementById("myCanvas");
-	var ctx=c.getContext("2d");
-	var lineActive = false;
-	
-	document.onselectstart = function(){ return false; } //prevent cursor changing
-	
-	$(c).mousedown(function(event){
-		x = event.offsetX;
-		y = event.offsetY;
-		ctx.moveTo(x,y);
-		lineActive = true;
-	});
-	
-	$(c).mouseup(function(event){
-		lineActive = false;
-	});
-	
-	$(c).mousemove(function(event){
-		if(lineActive){
-			x = event.offsetX;
-			y = event.offsetY;
-			ctx.lineTo(x,y);
-			ctx.stroke();
-		}
-	});
-	
+<br/>
 
-	
+<script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    var lineActive = false;
+
+    document.onselectstart = function() {
+        return false;
+    } //prevent cursor changing
+
+    $(c).mousedown(function(event) {
+        x = event.offsetX;
+        y = event.offsetY;
+        ctx.moveTo(x, y);
+        lineActive = true;
+    });
+
+    $(c).mouseup(function(event) {
+        lineActive = false;
+    });
+
+    $(c).mousemove(function(event) {
+        if (lineActive) {
+            x = event.offsetX;
+            y = event.offsetY;
+            ctx.lineTo(x, y);
+            ctx.stroke();
+        }
+    });
+
+
+
 </script>
