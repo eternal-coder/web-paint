@@ -28,6 +28,7 @@
     position: absolute;
     border:1px solid #000000;
     cursor: default;
+    z-index: 0;
 }
 
 #layer2{
@@ -35,12 +36,18 @@
     border:1px solid #000000;
     cursor: default;
     display: none;
+    z-index: 1;
 }
 
 
 #curve{
     background-image: url('curve.png');
 }
+
+#line{
+    background-image: url('line.png');
+}
+
 
 #clear{
     font-size: 20pt;
