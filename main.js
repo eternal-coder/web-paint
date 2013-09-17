@@ -14,6 +14,7 @@ $(function() {
         $(this).css("background-color", color);
     });
     color = 'black';
+    $("#curve").addClass("button_active");
 });
 
 
@@ -86,6 +87,9 @@ $(".tools_panel>input[type='button']").click(function() {
     if (tool === "line") {
         $('#layer2').show();
     }
+    $(".tools_panel>input[type='button']").removeClass("button_active");
+    $(this).addClass("button_active");
+    
 });
 
 $('#customcolor').change(function() {
