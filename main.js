@@ -115,4 +115,7 @@ function clearTemp(){
     tempCtx.beginPath();
 }
 
-
+function drop(ev)
+{
+	ev.preventDefault();
+}
