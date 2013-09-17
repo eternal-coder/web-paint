@@ -1,34 +1,40 @@
-<!DOCTYPE html>
-<script src="jquery-1.10.2.min.js"></script>
-<link rel="stylesheet" type="text/css" href="main.css">
-<div class="tools_panel">
-    <input type="button" id="curve" data-tool="pen">
-    <input type="button" id="line" data-tool="line">
-</div>
-<div id="selected_color"></div>
-<div class="palette">
-    <input type="button"  data-color="black" >
-    <input type="button"  data-color="green" >
-    <br>
-    <input type="button"  data-color="yellow" >
-    <input type="button"  data-color="red" >
-    <br>
-    <input type="button" data-color="blue" >
-    <input type="button" data-color="gray" >
-    <br>
-    <input type="button" data-color="#E01B5D" >
-    <input type="button" data-color="#1BCCE0" >
-    <br>
-    <input type="button" data-color="#D91BE0" >
-    <input type="button" data-color="#98E01B" >
-    <br>
-    <input type="color" id="customcolor">
-</div>
-<div class="canvas_container">
-    <canvas id="layer1" width="600" height="500" >
-    </canvas>
-    <canvas id="layer2" width="600" height="500" >
-    </canvas>
-</div>
-<input type="button" id="clear" value="Clear">
-<script src="main.js"></script>
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<script src="jquery-1.10.2.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="main.css">
+	</head>
+	<body>
+		<div class="tools_panel">
+			<input type="button" id="curve" data-tool="pen">
+			<input type="button" id="line" data-tool="line">
+		</div>
+		<div id="selected_color"></div>
+		<div class="palette">
+			<input type="button"  data-color="black" >
+			<input type="button"  data-color="green" >
+			<br>
+			<input type="button"  data-color="yellow" >
+			<input type="button"  data-color="red" >
+			<br>
+			<input type="button" data-color="blue" >
+			<input type="button" data-color="gray" >
+			<br>
+			<input type="button" data-color="#E01B5D" >
+			<input type="button" data-color="#1BCCE0" >
+			<br>
+			<input type="button" data-color="#D91BE0" >
+			<input type="button" data-color="#98E01B" >
+			<br>
+			<input type="color" id="customcolor">
+		</div>
+		<div class="canvas_container">
+			<canvas id="layer1" width="600" height="500" >
+			</canvas>
+			<canvas id="layer2" width="600" height="500" >
+			</canvas>
+		</div>
+		<input type="button" id="clear" value="Clear">
+		<script src="main.js"></script>
+	</body>
+</html>
