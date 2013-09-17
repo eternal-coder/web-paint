@@ -15,6 +15,10 @@
     height: 50px;
 }
 
+.button_active{
+    border: 2px solid black;
+}
+
 .palette{
     border: 1px solid black;
     position: absolute;

@@ -1,39 +1,49 @@
-var c = document.getElementById("layer1");
-var c2 = document.getElementById("layer2");
-var ctx = c.getContext("2d");
-var ctx2 = c2.getContext("2d");
+var mainLayer = document.getElementById("layer1");
+var tempLayer = document.getElementById("layer2");
+var mainCtx = mainLayer.getContext("2d");
+var tempCtx = tempLayer.getContext("2d");
 var lineActive = false;
 var color;
 var tool = "pen";
 var tmpLine;
 
+//init
+$(function() {
+    $(".palette>input[type='button']").each(function() {
+        color = $(this).data("color");
+        $(this).css("background-color", color);
+    });
+    color = 'black';
+});
 
+
+//listeners
 document.onselectstart = function() {
     return false;
 } //prevent cursor changing
 
-$(c).mousedown(function(event) {
+$(mainLayer).mousedown(function(event) {
     x = event.offsetX;
     y = event.offsetY;
-    ctx.moveTo(x, y);
+    mainCtx.moveTo(x, y);
     lineActive = true;
 });
 
-$(c).mouseup(function() {
+$(mainLayer).mouseup(function() {
     lineActive = false;
 });
 
-$(c).mousemove(function(event) {
+$(mainLayer).mousemove(function(event) {
     if (lineActive) {
         x = event.offsetX;
         y = event.offsetY;
-        ctx.lineTo(x, y);
-        ctx.strokeStyle = color;
-        ctx.stroke();
+        mainCtx.lineTo(x, y);
+        mainCtx.strokeStyle = color;
+        mainCtx.stroke();
     }
 });
 
-$(c2).mousedown(function(event) {
+$(tempLayer).mousedown(function(event) {
     if (!lineActive) {
         line.startX = event.offsetX;
         line.startY = event.offsetY;
@@ -41,38 +51,29 @@ $(c2).mousedown(function(event) {
         line.endX = event.offsetX;
         line.endY = event.offsetY;
         addLine(line);
+        clearTemp();
     }
     lineActive = !lineActive;
 });
 
-$(c2).mousemove(function(event) {
+$(tempLayer).mousemove(function(event) {
     if (lineActive) {
-        ctx2.clearRect(0, 0, c2.width, c2.height);
-        ctx2.beginPath();
+        clearTemp();
         line.endX = event.offsetX;
         line.endY = event.offsetY;
-        ctx2.moveTo(line.startX, line.startY);
-        ctx2.lineTo(line.endX, line.endY);
-        ctx2.strokeStyle = color;
-        ctx2.stroke();
+        tempCtx.moveTo(line.startX, line.startY);
+        tempCtx.lineTo(line.endX, line.endY);
+        tempCtx.strokeStyle = color;
+        tempCtx.stroke();
     }
 });
 
-
 $("#clear").click(function() {
-    ctx.clearRect(0, 0, c.width, c.height);
-    ctx.beginPath();
+    clearMain();
 });
 
-function addLine(_line) {
-    ctx.moveTo(_line.startX, _line.startY);
-    ctx.lineTo(_line.endX, _line.endY);
-    ctx.strokeStyle = color;
-    ctx.stroke();
-}
-
 $(".palette>input[type='button']").click(function() {
-    ctx.beginPath();
+    mainCtx.beginPath();
     color = $(this).data("color");
     $("#selected_color").css("background-color", color);
 });
@@ -87,19 +88,27 @@ $(".tools_panel>input[type='button']").click(function() {
     }
 });
 
-
 $('#customcolor').change(function() {
-    ctx.beginPath();
+    mainCtx.beginPath();
     color = $(this).val();
     $("#selected_color").css("background-color", color);
 });
 
-$(function() {
-    $(".palette>input[type='button']").each(function() {
-        color = $(this).data("color");
-        $(this).css("background-color", color);
-    });
-    color = 'black';
-});
+function addLine(_line) {
+    mainCtx.moveTo(_line.startX, _line.startY);
+    mainCtx.lineTo(_line.endX, _line.endY);
+    mainCtx.strokeStyle = color;
+    mainCtx.stroke();
+}
+
+function clearMain(){
+    mainCtx.clearRect(0, 0, mainLayer.width, mainLayer.height);
+    mainCtx.beginPath();
+}
+
+function clearTemp(){
+    tempCtx.clearRect(0, 0, tempLayer.width, tempLayer.height);
+    tempCtx.beginPath();
+}
 
 
