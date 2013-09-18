@@ -89,7 +89,7 @@ $(".tools_panel>input[type='button']").click(function() {
     }
     $(".tools_panel>input[type='button']").removeClass("button_active");
     $(this).addClass("button_active");
-    
+
 });
 
 $('#customcolor').change(function() {
@@ -105,17 +105,25 @@ function addLine(_line) {
     mainCtx.stroke();
 }
 
-function clearMain(){
+function clearMain() {
     mainCtx.clearRect(0, 0, mainLayer.width, mainLayer.height);
     mainCtx.beginPath();
 }
 
-function clearTemp(){
+function clearTemp() {
     tempCtx.clearRect(0, 0, tempLayer.width, tempLayer.height);
     tempCtx.beginPath();
 }
 
-function drop(ev)
-{
-	ev.preventDefault();
+function dragStart(event) {
+
+}
+
+function dragEnd(event) {
+    event.preventDefault();
+    x = event.clientX;
+    y = event.clientY;
+    $(".palette").css("left", x);
+    $(".palette").css("top", y);
+
 }
