@@ -6,6 +6,8 @@ var lineActive = false;
 var color;
 var tool = "pen";
 var tmpLine;
+var tmpCoord;
+
 
 //init
 $(function() {
@@ -116,14 +118,18 @@ function clearTemp() {
 }
 
 function dragStart(event) {
-
+	tmpCoord = new Object;
+	tmpCoord.x = event.clientX;
+	tmpCoord.y = event.clientY;
 }
 
 function dragEnd(event) {
     event.preventDefault();
     x = event.clientX;
     y = event.clientY;
-    $(".palette").css("left", x);
-    $(".palette").css("top", y);
+	oldX = $(".palette").position().left;
+	oldY = $(".palette").position().top;
+    $(".palette").css("left", oldX + x - tmpCoord.x );
+    $(".palette").css("top", oldY + y - tmpCoord.y);
 
 }

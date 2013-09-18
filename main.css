@@ -1,4 +1,8 @@
-.tools_panel{
+.panel{
+	background-color: white;
+	z-index: 10;
+}
+.tools{
     border: 1px solid black;
     position: absolute;
     left: 650px;
@@ -64,7 +68,7 @@
     width: 600px;
 }
 
-.tools_panel input[type="button"]{
+.tools input[type="button"]{
     width: 48px;
     height: 48px;
 }
@@ -72,4 +76,10 @@
 .palette input[type="button"]{
     width: 48px;
     height: 48px;
+}
+
+
+.draggable_header{
+	height: 20px;
+	background-color: #708599;
 }

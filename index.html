@@ -7,12 +7,14 @@
 		<link rel="stylesheet" type="text/css" href="main.css">
 	</head>
 	<body>
-		<div class="tools_panel">
+		<div class="tools panel">
+			<div class="draggable_header"></div>
 			<input type="button" id="curve" data-tool="pen" value="&#160;" >
 			<input type="button" id="line" data-tool="line" value="&#160;" >
 		</div>
 		<div id="selected_color"></div>
-                <div class="palette" draggable="true" ondragend="dragEnd(event)" >
+        <div class="palette panel" draggable="true" ondragend="dragEnd(event)" ondragstart="dragStart(event)">
+			<div class="draggable_header"></div>
 			<input type="button"  data-color="black" value="&#160;" >
 			<input type="button"  data-color="green" value="&#160;" >
 			<br>
