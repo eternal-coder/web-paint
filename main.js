@@ -81,7 +81,7 @@ $(".palette>input[type='button']").click(function() {
     $("#selected_color").css("background-color", color);
 });
 
-$(".tools_panel>input[type='button']").click(function() {
+$(".tools>input[type='button']").click(function() {
     tool = $(this).data("tool");
     if (tool === 'pen') {
         $('#layer2').hide();
@@ -89,7 +89,7 @@ $(".tools_panel>input[type='button']").click(function() {
     if (tool === "line") {
         $('#layer2').show();
     }
-    $(".tools_panel>input[type='button']").removeClass("button_active");
+    $(".tools>input[type='button']").removeClass("button_active");
     $(this).addClass("button_active");
 
 });
