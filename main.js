@@ -17,6 +17,8 @@ $(function() {
     });
     color = 'black';
     $("#curve").addClass("button_active");
+	setDraggable(".palette");
+	setDraggable(".tools");
 });
 
 
@@ -117,19 +119,20 @@ function clearTemp() {
     tempCtx.beginPath();
 }
 
-function dragStart(event) {
-	tmpCoord = new Object;
-	tmpCoord.x = event.clientX;
-	tmpCoord.y = event.clientY;
-}
-
-function dragEnd(event) {
-    event.preventDefault();
-    x = event.clientX;
-    y = event.clientY;
-	oldX = $(".palette").position().left;
-	oldY = $(".palette").position().top;
-    $(".palette").css("left", oldX + x - tmpCoord.x );
-    $(".palette").css("top", oldY + y - tmpCoord.y);
-
+function setDraggable(element){
+	$(element).on('dragstart',function(event){
+		tmpCoord = new Object;
+		tmpCoord.x = event.originalEvent.clientX;
+		tmpCoord.y = event.originalEvent.clientY;
+	});
+	$(element).on('dragend',function(event){
+		event.originalEvent.preventDefault();
+		x = event.originalEvent.clientX;
+		y = event.originalEvent.clientY;
+		oldX = $(this).position().left;
+		oldY = $(this).position().top;
+		$(this).css("left", oldX + x - tmpCoord.x );
+		$(this).css("top", oldY + y - tmpCoord.y);
+	});
+	$(element).attr("draggable",true);
 }

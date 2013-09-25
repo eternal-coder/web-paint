@@ -12,8 +12,8 @@
 			<input type="button" id="curve" data-tool="pen" value="&#160;" >
 			<input type="button" id="line" data-tool="line" value="&#160;" >
 		</div>
-		<div id="selected_color"></div>
-        <div class="palette panel" draggable="true" ondragend="dragEnd(event)" ondragstart="dragStart(event)">
+		
+        <div class="palette panel">
 			<div class="draggable_header"></div>
 			<input type="button"  data-color="black" value="&#160;" >
 			<input type="button"  data-color="green" value="&#160;" >
@@ -30,6 +30,8 @@
 			<input type="button" data-color="#D91BE0" value="&#160;" >
 			<input type="button" data-color="#98E01B" value="&#160;" >
 			<br>
+			<hr>
+			<div id="selected_color"></div>
 		</div>
 		<div class="canvas_container">
 			<canvas id="layer1" width="600" height="500" >
