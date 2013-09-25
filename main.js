@@ -16,7 +16,7 @@ $(function() {
         $(this).css("background-color", color);
     });
     color = 'black';
-    $("#curve").addClass("button_active");
+    $("#pen").addClass("button_active");
 	setDraggable(".palette");
 	setDraggable(".tools");
 });
